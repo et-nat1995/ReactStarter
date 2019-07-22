@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import SnackBarCentered from "./components/Snackbar"
+import Grid from "./components/Grid";
 
 function App() {
 
@@ -12,8 +13,11 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <SnackBarCentered/>
+        <SnackBarCentered />
       </header>
+      <div className="app-body">
+        <Grid/>
+      </div>
     </div>
   );
 }
