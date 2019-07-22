@@ -1,7 +1,8 @@
-var express = require("express");
-var mongoose = require("mongoose");
+const express = require("express");
+const morgan = require("morgan");
+const mongoose = require("mongoose");
 
-var PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;
 
 const mongoURI = process.env.MONGODB_URI /* || place dev uri here */;
 
@@ -10,7 +11,8 @@ const mongoURI = process.env.MONGODB_URI /* || place dev uri here */;
 // }).catch(err => console.log(err));
 
 
-var app = express();
+const app = express();
+app.use(morgan("dev"));
 app.use(require("./routes"));
 
 // allows all static files to be loaded and used by the server.
