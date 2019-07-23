@@ -1,8 +1,6 @@
 import React from "react";
 import clsx from "clsx";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import CloseIcon from "@material-ui/icons/Close";
-import IconButton from "@material-ui/core/IconButton";
 import Snackbar from "@material-ui/core/Snackbar";
 import Slide from "@material-ui/core/Slide";
 import { green } from "@material-ui/core/colors";

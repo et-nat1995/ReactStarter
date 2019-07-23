@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import HomePage from './Pages/Home';
+import NavBar from "./components/Navbar";
 import './App.scss';
-import SnackBarCentered from "./components/Snackbar"
-import Grid from "./components/Grid";
 
 function App() {
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <SnackBarCentered />
-      </header>
-      <div className="app-body">
-        <Grid/>
+    <Router>
+        <NavBar/>
+      <div className="App">
+        <Route exact path="/" component={HomePage}/>
       </div>
-    </div>
+    </Router>
   );
 }
 
