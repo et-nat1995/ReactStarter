@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import ErrorIcon from '@material-ui/icons/Error';
 import Snackbar from "@material-ui/core/Snackbar";
 import Slide from "@material-ui/core/Slide";
 import { green } from "@material-ui/core/colors";
@@ -12,11 +13,15 @@ import "./index.scss";
 
 const variantIcons = {
   success: CheckCircleIcon,
+  error: ErrorIcon
 };
 
 const useStyles = makeStyles((theme) => ({
   success: {
     backgroundColor: green[600],
+  },
+  error: {
+    backgroundColor: theme.palette.error.dark,
   },
   icon: {
     fontSize: 20,
@@ -40,20 +45,24 @@ function SlideTransition(props) {
 
 export default function SnackBarCentered() {
   const classes = useStyles();
-  const Icon = variantIcons["success"];
   const [state, setState] = React.useState({
     open: false,
     text: "",
+    type: "",
+    Icon : ""
   });
 
-  const { open, text, Transition } = state;
+  const { open, text, Transition , type, Icon} = state;
 
   const handleOnClick = (Transition) => () => {
     API.consoleButton()
       .then((data) =>
-        setState({ open: true, text: data.data, Transition: Transition })
+        setState({ open: true, text: data.data, Transition: Transition, type: classes.success, Icon: variantIcons["success"] })
       )
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setState({ open: true, text: "There has been an error", Transition: Transition, type: classes.error, Icon: variantIcons["error"] });
+        console.log(err);
+      });
   };
 
   const handleClose = () => {
@@ -80,7 +89,7 @@ export default function SnackBarCentered() {
         autoHideDuration={2000}
       >
         <SnackbarContent
-          className={classes.success}
+          className={type}
           message={
             <span id="message-id" className={classes.message}>
               <Icon className={clsx(classes.icon, classes.iconVariant)} />
