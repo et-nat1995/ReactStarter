@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function SlideTransition(props) {
-  return <Slide {...props} direction="up" />;
+  return <Slide {...props} direction="left" />;
 }
 
 export default function SnackBarCentered() {
@@ -79,7 +79,7 @@ export default function SnackBarCentered() {
         Hello There
       </MyButton>
       <Snackbar
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={open}
         onClose={handleClose}
         ContentProps={{

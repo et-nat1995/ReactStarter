@@ -1,5 +1,4 @@
 import React from 'react';
-import SnackBarCentered from "../../components/Snackbar";
 import Grid from "../../components/Grid";
 import logo from '../../logo.svg';
 
@@ -11,7 +10,6 @@ export default function HomePage() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <SnackBarCentered />
       </header>
       <div className="app-body">
         <Grid/>
