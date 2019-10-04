@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,10 +18,15 @@ const useStyles = makeStyles(theme => ({
   },
   MyAppBar: {
     backgroundColor: "#1E88E5",
+  },
+  myLinks: {
+    color: 'inherit',
+    cursor: 'inherit',
+    textDecoration: 'inherit'
   }
 }));
 
-export default function ButtonAppBar(props) {
+export default  (props) => {
   const classes = useStyles();
 
 
@@ -31,8 +37,21 @@ export default function ButtonAppBar(props) {
           <Typography variant="h6" className={classes.title}>
             News
           </Typography>
-          <Button href="/" color="inherit">Home</Button>
-          <Button href="/hello-world" color="inherit">Hello</Button>
+          <NavLink className={classes.myLinks} to='/'>
+            <Button color="inherit">
+                Home
+            </Button>
+          </NavLink>
+          <NavLink className={classes.myLinks} exact to='/curency-converter'>
+            <Button color="inherit">
+                Curency Converter
+            </Button>
+          </NavLink>
+          <NavLink className={classes.myLinks} exact to='/history'>
+            <Button color="inherit">
+                History
+            </Button>
+          </NavLink>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

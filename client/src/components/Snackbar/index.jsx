@@ -43,7 +43,7 @@ function SlideTransition(props) {
   return <Slide {...props} direction="left" />;
 }
 
-export default function SnackBarCentered() {
+export default (props) => {
   const classes = useStyles();
   const [state, setState] = React.useState({
     open: false,
