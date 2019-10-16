@@ -1,11 +1,19 @@
 import Axios from "axios";
-import CustomAxios from './customAxios.js';
 
 export default {
   consoleButton: () => {
     return Axios.get("/api/success");
   },
-  getSubmit: ({from, to, amount}) => {
-    CustomAxios.get(`/currency-conversion-history-service/from/${from}/to/${to}/quantity/${amount}`);
+  submitConversion: ({from, to, amount}) => {
+    return Axios.post(`/currency-conversion-history-service/from/${from}/to/${to}/quantity/${amount}`);
+  },
+  getHistory: () => {
+    return Axios.get('/currency-conversion-history-service/lists');
+  },
+  deletRow: ({ id })=>{
+    return Axios.delete(`/currency-conversion-history-service/lists/${id}`);
+  },
+  updateRow: (body) => {
+    return Axios.put('/currency-conversion-history-service/lists', body);
   }
 }

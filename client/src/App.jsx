@@ -5,6 +5,7 @@ import NavBar from "./components/Navbar";
 import './App.scss';
 
 const CurencyConverter = React.lazy(() => import('./Pages/CurencyConverter'))
+const History = React.lazy(() => import('./Pages/History'))
 
 function App() {
 
@@ -12,9 +13,11 @@ function App() {
     <Router>
         <NavBar/>
         <div className="App">
-          <Route exact path="/history" render={() => <h2>Not Found</h2>} />
           <Suspense fallback={<h1>Still Loading…</h1>}>
             <Route exact path="/curency-converter" component={CurencyConverter}/>
+        </Suspense>
+        <Suspense fallback={<h1>Still Loading…</h1>}>
+            <Route exact path="/history" component={History}/>
           </Suspense>
           <Route exact path="/" component={HomePage} />
         </div>
