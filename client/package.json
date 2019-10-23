@@ -34,5 +34,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8765"
+  "proxy": "http://currency-converter-appmesh-lb-194202240.us-east-1.elb.amazonaws.com/api/"
 }
