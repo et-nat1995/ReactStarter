@@ -28,6 +28,10 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.use(require("./routes"));
 
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
 // allows all static files to be loaded and used by the server.
 // app.use(express.static("public"));
 // builds the req.body
