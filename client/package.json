@@ -17,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prod" : "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,5 +35,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://currency-converter-appmesh-lb-194202240.us-east-1.elb.amazonaws.com/api/"
+  "proxy": "http://localhost:3001"
 }
