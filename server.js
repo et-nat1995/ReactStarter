@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, "client", "build")))
 app.use(require("./routes"));
 
 // allows all static files to be loaded and used by the server.
-app.use(express.static("public"));
+// app.use(express.static("public"));
 // builds the req.body
 // app.use(express.urlencoded({ extended: true }));
 // app.use(express.json());

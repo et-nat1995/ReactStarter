@@ -5,15 +5,15 @@ export default {
     return Axios.get("/api/success");
   },
   submitConversion: ({from, to, amount}) => {
-    return Axios.post(`/my-currency-conversion-history-service/from/${from}/to/${to}/quantity/${amount}`);
+    return Axios.post(`/api/submit`, {from,to, amount});
   },
   getHistory: () => {
-    return Axios.get('/my-currency-conversion-history-service/lists');
+    return Axios.get('/api/history');
   },
   deletRow: ({ id })=>{
-    return Axios.delete(`/my-currency-conversion-history-service/lists/${id}`);
+    return Axios.delete(`/api/delete/${id}`);
   },
   updateRow: (body) => {
-    return Axios.put('/my-currency-conversion-history-service/lists', body);
+    return Axios.put('/api/update', body);
   }
 }
